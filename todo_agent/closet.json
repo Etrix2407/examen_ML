@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Chemise noire",
+    "type": "haut",
+    "color": "noir",
+    "season": "ete",
+    "occasion": "toutes"
+  },
+  {
+    "id": 2,
+    "name": "Sweat rose",
+    "type": "haut",
+    "color": "rose",
+    "season": "hiver",
+    "occasion": "casual"
+  },
+  {
+    "id": 3,
+    "name": "Jean marine",
+    "type": "bas",
+    "color": "marine",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 4,
+    "name": "t-shirt blanc",
+    "type": "haut",
+    "color": "blanc",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 5,
+    "name": "blouse grise",
+    "type": "haut",
+    "color": "gris",
+    "season": "mi_saison",
+    "occasion": "toutes"
+  },
+  {
+    "id": 6,
+    "name": "sweater noir",
+    "type": "haut",
+    "color": "noir",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 7,
+    "name": "pull rouge",
+    "type": "haut",
+    "color": "rouge",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 8,
+    "name": "chapeau de froid",
+    "type": "accessoire",
+    "color": "bleu",
+    "season": "hiver",
+    "occasion": "toutes"
+  },
+  {
+    "id": 9,
+    "name": "gants en cuir",
+    "type": "accessoire",
+    "color": "noir",
+    "season": "hiver",
+    "occasion": "toutes"
+  },
+  {
+    "id": 10,
+    "name": "sneakers noirs",
+    "type": "chaussures",
+    "color": "noir",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 11,
+    "name": "gilet rouge",
+    "type": "haut",
+    "color": "rouge",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 12,
+    "name": "veste bleue",
+    "type": "veste",
+    "color": "bleu",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 13,
+    "name": "chaussures en cuir",
+    "type": "chaussures",
+    "color": "noir",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 14,
+    "name": "jean bleu",
+    "type": "bas",
+    "color": "bleu",
+    "season": "toutes",
+    "occasion": "toutes"
+  },
+  {
+    "id": 15,
+    "name": "pantalon gris",
+    "type": "bas",
+    "color": "gris",
+    "season": "toutes",
+    "occasion": "toutes"
+  }
+]
