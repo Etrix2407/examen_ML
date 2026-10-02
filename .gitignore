@@ -1,0 +1,20 @@
+# Environnement virtuel
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Fichiers syst�me / �diteur
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Donn�es volumineuses ou g�n�r�es (� adapter)
+*.faiss
+*.index
+*.npy
+
+.git
