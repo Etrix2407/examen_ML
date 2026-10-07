@@ -10,8 +10,8 @@ Fonctionnalités :
   2. Organisation par saison et par occasion
   3. Suggestions de tenues (association type + couleur + saison/occasion)
 
-Prérequis : Ollama installé et lancé, modèle qwen3:4b disponible (`ollama pull qwen3:4b`)
-Installation : pip install google-adk litellm
+Prérequis : Ollama installé et lancé, modèle qwen3:4b disponible (`ollama pull qwen3:4b`, "ollama run qwen3:4b")
+Installation : pip install google-adk litellm (adk web)
 """
 
 import json
@@ -31,7 +31,7 @@ from itertools import product
 #   "occasion": "travail"
 # }
 
-CLOSET_FILE = "closet.json"
+CLOSET_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "closet.json")
 VALID_TYPES = ["haut", "bas", "robe", "veste", "chaussures", "accessoire"]
 VALID_SEASONS = ["ete", "hiver", "mi_saison", "toutes"]
 VALID_OCCASIONS = ["casual", "travail", "sport", "soiree", "toutes"]
@@ -404,9 +404,12 @@ print("list_by_season, list_by_occasion, group_by_type et suggest_outfit definis
 from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
 
-MODEL_ID = "ollama_chat/qwen3:4b"
+MODEL_ID = "ollama_chat/qwen3:4b-instruct"
 
-SYSTEM_PROMPT = """Tu es un assistant de conseil mode et de gestion de garde-robe.
+SYSTEM_PROMPT = """
+## Rôle
+
+Tu es un assistant de conseil mode et de gestion de garde-robe.
 Tu es courtois, professionnel et concis.
 Chaque vetement a un nom, un type, une couleur, une saison et une occasion.
 
@@ -432,6 +435,11 @@ Lors de ta première réponse dans une nouvelle conversation, commence TOUJOURS 
 - Quand l'utilisateur demande une suggestion de tenue ("que porter", "aide-moi a m'habiller"),
   utilise suggest_outfit en deduisant la saison/occasion depuis le contexte (sinon "toutes").
 - Ne fabrique jamais de donnees : utilise toujours les outils.
+
+## Regles general
+
+- Reponds UNIQUEMENT en francais. N'utilise jamais de mots chinois, anglais ou d'autres langues.
+- Reprends fidelement le resultat des outils. N'ajoute aucune description, aucun commentaire ni adjectif qui ne figure pas dans le resultat.
 
 ## Suggestions automatiques
 
@@ -481,7 +489,7 @@ def _strip_thinking_callback(callback_context, llm_response):
 
 root_agent = Agent(
     name="fashion_agent",
-    model=LiteLlm(model=MODEL_ID, extra_body={"think": True}),
+    model=LiteLlm(model=MODEL_ID, extra_body={"think": False}, temperature = 0.2),
     description="Agent de gestion de garde-robe et conseil vestimentaire",
     instruction=SYSTEM_PROMPT,
     after_model_callback=_strip_thinking_callback,
